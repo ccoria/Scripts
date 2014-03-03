@@ -3,7 +3,14 @@
 # in the local folder, specified in the second parameter.
 # The script will get the ssh host to use in the mount command.
 # This is specially helpful when the remote ip/domain, changes constantly.
-
+#
+# To make it work, the remote machine shall be configured properly using exports.
+# /etc/exports sample:
+# /Folder/to/be/exported/ -alldirs -mapall=user -network 10.0.0.0 -mask 255.0.0.0 (rw,sync)
+# Then test your work
+# $showmount -e
+# Also, you might need to run
+$ $sudo nfsd restart
 
 function mountssh {
     remote_path=$1; #path to be mounted

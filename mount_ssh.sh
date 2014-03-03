@@ -10,7 +10,7 @@
 # Then test your work
 # $showmount -e
 # Also, you might need to run
-$ $sudo nfsd restart
+# $sudo nfsd restart
 
 function mountssh {
     remote_path=$1; #path to be mounted

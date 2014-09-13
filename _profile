@@ -57,7 +57,7 @@ BWhite='\e[1;37m'       # White
 
 _username_='\u@'
 _hostname_='\h'
-_path_='\w '
+_path_=' \w '
 
 PS1=$Color_Off$_username_$BGreen$_hostname_$Blue$_path_$Color_Off'$ '
 
@@ -65,6 +65,7 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 alias l='ls -lh'
+alias la='ls -lah'
 alias up='cd ..'
 
 #from http://thelucid.com/2013/01/21/quickly-pushing-your-public-ssh-key-to-a-server/
@@ -76,6 +77,6 @@ function pushkey {
 # 2 - username
 function newssh {
     pushkey $1;
-    scp ~/.vimrc ~/.bashrc $2'@'$1':/home/'$2'/'; 
+    scp ~/.gitconfig ~/.vimrc ~/.profile $2'@'$1':/home/'$2'/'; 
     ssh $1;
 }

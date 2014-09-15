@@ -77,6 +77,6 @@ function pushkey {
 # 2 - username
 function newssh {
     pushkey $1;
-    scp ~/.gitconfig ~/.vimrc ~/.profile $2'@'$1':/home/'$2'/'; 
+    scp ~/.gitconfig ~/.vimrc ~/.bashrc $2'@'$1':/home/'$2'/'; 
     ssh $1;
 }

@@ -76,10 +76,15 @@ function pushkey {
     ssh $1 "echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys";
 }
 
-# 1 - hostname
-# 2 - username
+# 1 - username
+# 2 - hostname
+function updatehost {
+    scp ~/.gitconfig ~/.vimrc ~/.bashrc $1'@'$2':/home/'$1'/'; 
+    ssh $2;
+}
+# 1 - username
+# 2 - hostname
 function newhost {
     pushkey $1;
-    scp ~/.gitconfig ~/.vimrc ~/.bashrc $2'@'$1':/home/'$2'/'; 
-    ssh $1;
+    updatehost $1 $2;
 }

@@ -64,18 +64,21 @@ PS1=$Color_Off$_username_$BGreen$_hostname_$Blue$_path_$Color_Off'$ '
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-alias l='ls -lh'
-alias la='ls -lah'
-alias up='cd ..'
+alias l='ls -lh';
+alias la='ls -lah';
+alias up='cd ..';
+alias grunt='./node_modules/grunt-cli/bin/grunt';
+alias tl='tree -ChL'
+alias t='tl 2'
 
 #from http://thelucid.com/2013/01/21/quickly-pushing-your-public-ssh-key-to-a-server/
 function pushkey {
-    ssh $1 "echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys"
+    ssh $1 "echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys";
 }
 
 # 1 - hostname
 # 2 - username
-function newssh {
+function newhost {
     pushkey $1;
     scp ~/.gitconfig ~/.vimrc ~/.bashrc $2'@'$1':/home/'$2'/'; 
     ssh $1;

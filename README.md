@@ -1,4 +1,4 @@
 Scripts
 =======
 
-My dotfiles and useful scripts
+My dotfiles and useful scripts.

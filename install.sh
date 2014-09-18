@@ -5,6 +5,7 @@ function sl {
     cp -f $source $origin;
 }
 
+# creating the symlinks
 sl vimrc
 sl gitconfig
 sl profile

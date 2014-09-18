@@ -10,5 +10,5 @@ sl vimrc
 sl gitconfig
 sl profile
 
-#creating the bashrc for the linux installation (newssh)
+# creating the bashrc for the linux installation (newssh)
 cp -f '_profile' $HOME'/.bashrc'

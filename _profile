@@ -64,6 +64,7 @@ PS1=$Color_Off$_username_$BGreen$_hostname_$Blue$_path_$Color_Off'$ '
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+# aliases
 alias l='ls -lh';
 alias la='ls -lah';
 alias up='cd ..';

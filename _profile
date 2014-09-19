@@ -33,7 +33,6 @@
 # 11. directory writable to others, without sticky bit 
 
 
-# Reset
 Color_Off='\e[0m'       # Text Reset
 
 # Regular Colors

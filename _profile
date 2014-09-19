@@ -62,8 +62,8 @@ _path_=' \w '
 
 PS1=$Color_Off$_username_$BGreen$_hostname_$Blue$_path_$Color_Off'$ ';
 
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
+export CLICOLOR=1;
+export LSCOLORS=GxFxCxDxBxegedabagaced;
 
 # aliases
 alias l='ls -lh';
@@ -73,7 +73,8 @@ alias grunt='./node_modules/grunt-cli/bin/grunt';
 alias tl='tree -ChL'
 alias t='tl 2'
 
-#from http://thelucid.com/2013/01/21/quickly-pushing-your-public-ssh-key-to-a-server/
+# from http://thelucid.com/2013/01/21/quickly-pushing-your-public-ssh-key-to-a-server/
+# 1 - host to push the keys
 function pushkey {
     ssh $1 "echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys";
 }

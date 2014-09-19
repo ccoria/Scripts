@@ -22,8 +22,8 @@ alias l='ls -lh';
 alias la='ls -lah';
 alias up='cd ..';
 alias grunt='./node_modules/grunt-cli/bin/grunt';
-alias tl='tree -ChL'
-alias t='tl 2'
+alias tl='tree -ChL';
+alias t='tl 2';
 
 # =========================
 # SSH Functions

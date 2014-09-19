@@ -1,3 +1,49 @@
+# ===============================
+# PS1 Setup
+
+Color_Off='\e[0m'       # Text Reset
+Green='\e[0;32m'        # Green
+Blue='\e[0;34m'         # Blue
+_username_='\u@'
+_hostname_='\h'
+_path_=' \w '
+PS1=$Color_Off$_username_$BGreen$_hostname_$Blue$_path_$Color_Off'$ ';
+
+
+export CLICOLOR=1;
+export LSCOLORS=GxFxCxDxBxegedabagaced;
+
+# aliases
+alias l='ls -lh';
+alias la='ls -lah';
+alias up='cd ..';
+alias grunt='./node_modules/grunt-cli/bin/grunt';
+alias tl='tree -ChL'
+alias t='tl 2'
+
+# from http://thelucid.com/2013/01/21/quickly-pushing-your-public-ssh-key-to-a-server/
+# 1 - host to push the keys
+function pushkey {
+    ssh $1 "echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys";
+}
+
+# 1 - username
+# 2 - hostname
+function updatehost {
+    scp ~/.gitconfig ~/.vimrc ~/.bashrc $1'@'$2':/home/'$1'/'; 
+    ssh $2;
+}
+
+# 1 - username
+# 2 - hostname
+function newhost {
+    pushkey $1;
+    updatehost $1 $2;
+}
+
+
+# REFERENCES
+
 # The color designators: 
 # 
 # a black 
@@ -32,14 +78,14 @@
 # 10. directory writable to others, with sticky bit 
 # 11. directory writable to others, without sticky bit 
 
-Color_Off='\e[0m'       # Text Reset
+# Color_Off='\e[0m'       # Text Reset
 
 # Regular Colors
 # Black='\e[0;30m'        # Black
 # Red='\e[0;31m'          # Red
-Green='\e[0;32m'        # Green
+# Green='\e[0;32m'        # Green
 # Yellow='\e[0;33m'       # Yellow
-Blue='\e[0;34m'         # Blue
+# Blue='\e[0;34m'         # Blue
 # Purple='\e[0;35m'       # Purple
 # Cyan='\e[0;36m'         # Cyan
 # White='\e[0;37m'        # White
@@ -54,38 +100,3 @@ Blue='\e[0;34m'         # Blue
 # BCyan='\e[1;36m'        # Cyan
 # BWhite='\e[1;37m'       # White
 
-_username_='\u@'
-_hostname_='\h'
-_path_=' \w '
-PS1=$Color_Off$_username_$BGreen$_hostname_$Blue$_path_$Color_Off'$ ';
-
-export CLICOLOR=1;
-export LSCOLORS=GxFxCxDxBxegedabagaced;
-
-# aliases
-alias l='ls -lh';
-alias la='ls -lah';
-alias up='cd ..';
-alias grunt='./node_modules/grunt-cli/bin/grunt';
-alias tl='tree -ChL'
-alias t='tl 2'
-
-# from http://thelucid.com/2013/01/21/quickly-pushing-your-public-ssh-key-to-a-server/
-# 1 - host to push the keys
-function pushkey {
-    ssh $1 "echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys";
-}
-
-# 1 - username
-# 2 - hostname
-function updatehost {
-    scp ~/.gitconfig ~/.vimrc ~/.bashrc $1'@'$2':/home/'$1'/'; 
-    ssh $2;
-}
-
-# 1 - username
-# 2 - hostname
-function newhost {
-    pushkey $1;
-    updatehost $1 $2;
-}

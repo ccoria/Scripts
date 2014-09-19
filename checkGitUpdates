@@ -7,8 +7,10 @@
 # COMMAND_TO_EXEC='npm install'
 #
 
-# it is recommended to add this script to you git hook (merge or checkout)
-
+# Installation
+# It is recommended to add this script to you git hook (merge):
+# $ cp checkGitUpdates .git/hooks/post-merge 
+# $ chmod +x .git/hooks/post-merge
 # =============================
 # CONFIG HERE
 #

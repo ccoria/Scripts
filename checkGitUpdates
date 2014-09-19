@@ -9,8 +9,9 @@
 
 # Installation
 # It is recommended to add this script to you git hook (merge):
-# $ cp checkGitUpdates .git/hooks/post-merge 
-# $ chmod +x .git/hooks/post-merge
+# $ chmod +x checkGitUpdates
+# then update you .git/hooks/post-merge with this line
+# $ ./checkGitUpdates 'package.json' 'ynpm install'
 # =============================
 # CONFIG HERE
 #

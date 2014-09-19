@@ -32,7 +32,6 @@
 # 10. directory writable to others, with sticky bit 
 # 11. directory writable to others, without sticky bit 
 
-# uncomment the colors in order use
 
 # Reset
 Color_Off='\e[0m'       # Text Reset

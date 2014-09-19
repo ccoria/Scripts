@@ -21,6 +21,9 @@ alias grunt='./node_modules/grunt-cli/bin/grunt';
 alias tl='tree -ChL'
 alias t='tl 2'
 
+# =========================
+# SSH Functions
+
 # from http://thelucid.com/2013/01/21/quickly-pushing-your-public-ssh-key-to-a-server/
 # 1 - host to push the keys
 function pushkey {

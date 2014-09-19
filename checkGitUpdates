@@ -1,0 +1,57 @@
+# This script verifys the if there are changes in your
+# dependencies file and ask you if you want to run any command
+#
+# i.e. package.json (ynpm install):
+#
+# FILES_TO_LOOK='package\.json'
+# COMMAND_TO_EXEC='npm install'
+#
+
+# it is recommended to add this script to you git hook (merge or checkout)
+
+# =============================
+# CONFIG HERE
+#
+# regex with the files to alert changes
+FILES_TO_LOOK=$1
+COMMAND_TO_EXEC=$2
+
+#or
+#FILES_TO_LOOK='_profile|_vimrc|_gitconfig'
+#COMMAND_TO_EXEC='sh install.sh'
+
+#debugger
+echo "Files: "$FILES_TO_LOOK
+echo "Command: "$COMMAND_TO_EXEC
+
+# ===============================
+
+
+
+THIS_COMMIT=$(git log -n 1 | grep commit | sed 's/commit //')
+LAST_COMMIT=$(cat /tmp/.last_commit)
+
+
+if test "$LAST_COMMIT" != ""; then
+    COUNT=$(git log --oneline --name-only $LAST_COMMIT..$THIS_COMMIT | egrep -c $FILES_TO_LOOK)
+    
+    #debugger
+    #echo 'Number of matches: '$COUNT
+    #CHANGES=$(git log --oneline --name-only $LAST_COMMIT..$THIS_COMMIT | egrep -c $FILES_TO_LOOK)
+    #echo 'Changes: '$CHANGES
+
+    if test $COUNT -ne 0; then
+        # getting the input to be used in the command 'read'
+        exec < /dev/tty
+    
+        echo  "There are updates in you dependencies files ($FILES_TO_LOOK)"
+        read -er -p "Do you want to run '$COMMAND_TO_EXEC' [y|n] " -n 1 
+        echo
+        if test "$REPLY" = 'y'; then
+            ${COMMAND_TO_EXEC};
+        fi
+    fi
+
+fi # LAST_COMMIT
+
+echo $THIS_COMMIT > /tmp/.last_commit

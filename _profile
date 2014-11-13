@@ -2,9 +2,9 @@
 # PS1 Setup
 
 # colors
-Color_Off='\e[0m'
-BGreen='\e[1;32m'
-Blue='\e[0;34m'
+Color_Off='\[\e[0m\]'
+BGreen='\[\e[1;32m\]'
+Blue='\[\e[0;34m\]'
 
 # data
 _username_='\u@'
@@ -47,4 +47,18 @@ function updatehost {
 function newhost {
     pushkey $1;
     updatehost $1 $2;
+}
+
+function install_editorconfig {
+    wget https://raw.githubusercontent.com/editorconfig/editorconfig-vim/master/plugin/editorconfig.vim &&
+    mv editorconfig.vim ~/.vim/
+}
+
+function search {
+    EXCLUDE=$(cat .gitignore | xargs echo)
+    egrep -r --text --ignore-case --line-number --color=always --exclude-dir=fadeaway --exclude-dir=build --exclude-dir=.git --exclude-dir=node_modules $1 .
+}
+
+function myfunctions {
+    echo "pushkey (host), updatehost (user, host), newhost (user, host), search (query), install_editorconfig"
 }

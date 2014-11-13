@@ -25,9 +25,16 @@ alias grunt='./node_modules/grunt-cli/bin/grunt';
 alias gruntsudo='sudo ./node_modules/grunt-cli/bin/grunt';
 alias tl='tree -ChL';
 alias t='tl 2';
+alias git-shortlog='git log --pretty=format:"%cd -%Cgreen %h %Creset-%C(yellow) %an %Creset: %s" --date=short'
 
 # =========================
 # SSH Functions
+
+# from http://thelucid.com/2013/01/21/quickly-pushing-your-public-ssh-key-to-a-server/
+# 1 - host to push the keys
+function startterm {
+    vssh $1 "echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys";
+}
 
 # from http://thelucid.com/2013/01/21/quickly-pushing-your-public-ssh-key-to-a-server/
 # 1 - host to push the keys

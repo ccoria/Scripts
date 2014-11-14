@@ -32,12 +32,6 @@ alias git-shortlog='git log --pretty=format:"%cd -%Cgreen %h %Creset-%C(yellow) 
 
 # from http://thelucid.com/2013/01/21/quickly-pushing-your-public-ssh-key-to-a-server/
 # 1 - host to push the keys
-function startterm {
-    vssh $1 "echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys";
-}
-
-# from http://thelucid.com/2013/01/21/quickly-pushing-your-public-ssh-key-to-a-server/
-# 1 - host to push the keys
 function pushkey {
     ssh $1 "echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys";
 }
@@ -67,5 +61,5 @@ function search {
 }
 
 function myfunctions {
-    echo "pushkey (host), updatehost (user, host), newhost (user, host), search (query), install_editorconfig"
+    echo "pushkey (host)\n updatehost (user, host), newhost (user, host), search (query), install_editorconfig"
 }

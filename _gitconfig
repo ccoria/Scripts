@@ -3,3 +3,5 @@
 	email = cassiano.coria@yahoo.com.br
 [color]
 	ui = true
+[push]
+    default = simple

@@ -29,21 +29,25 @@ alias t='tl 2';
 
 _linebreak_='%n';
 _date_='%cd';
+_relative_date_='%cr';
 _long_hash_='%H';
+_short_hash_='%h';
 _yellow_='%C(yellow)';
 _cyan_='%C(cyan)';
 _green_='%Cgreen';
 _reset_color_="%Creset"
 _author_="%an";
 _commit_message_="%s";
-alias git-shortlog='git log --pretty=format:"%cr -%Cgreen %h %Creset-%C(yellow) %an%Creset: %s" --date=short'
+_hash_="${_cyan_}${_short_hash_}${_reset_color_}"
+_long_hash_="${_cyan_}${_long_hash_}${_reset_color_}"
+_name_="${_yellow_}${_author_}${_reset_color_}"
 
-longformat_="=============================================================================="$_linebreak_;
-#longformat=$longformat"${_yellow_}${_long_hash_}${_reset_color_} (${_date_})"$_linebreak_;
-#longformat=$longformat"${_yellow_}${_author_}${_reset_color_}: ${_commit_message_}"$_linebreak_;
-longformat=$longformat"${_cyan_}${_long_hash_}"$_linebreak_;
-longformat=$longformat"${_yellow_}${_author_}${_reset_color_} on ${_date_}"$_linebreak_;
-longformat=$longformat"Message: ${_commit_message_}:"$_linebreak_;
+shortformat="${_hash_}, ${_relative_date_} - ${_name_}: ${_commit_message_}";
+alias git-shortlog='git log --pretty=format:"${shortformat}" --date=short'
+
+longformat="================================================================================="$_linebreak_;
+longformat=$longformat"${_long_hash_} on ${_date_}"$_linebreak_;
+longformat=$longformat"${_name_}: ${_commit_message_}"$_linebreak_;
 alias git-longlog='git log -p --pretty=format:"${longformat}" --date=local'
 
 # =========================

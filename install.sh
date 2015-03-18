@@ -12,3 +12,5 @@ sl profile
 
 # creating the bashrc for the linux installation (newssh)
 cp -f '_profile' $HOME'/.bashrc'
+
+echo "installation successful! Run update-source (or \$source ~/.bashrc) to test"

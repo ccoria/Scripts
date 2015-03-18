@@ -69,7 +69,7 @@ function updatehost {
 # 1 - username
 # 2 - hostname
 function newhost {
-    pushkey $1;
+    pushkey $2;
     updatehost $1 $2;
 }
 

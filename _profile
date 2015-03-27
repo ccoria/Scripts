@@ -1,10 +1,11 @@
 # =======================
 # PS1 Setup
 
-# colors
+# colors - more at http://blog.bigdinosaur.org/easy-ps1-colors/
 Color_Off='\[\e[0m\]'
 BGreen='\[\e[1;32m\]'
 Blue='\[\e[0;34m\]'
+Cyan='\[\e[0;36m\]'
 
 # data
 _username_='\u@'

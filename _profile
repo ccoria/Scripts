@@ -10,8 +10,13 @@ Blue='\[\e[0;34m\]'
 _username_='\u@'
 _hostname_='\h'
 _path_=' \w '
+_yroot_=''
+if [ $YROOT_NAME ]
+  then
+   _yroot_=$Cyan' ${YROOT_NAME} '$Color_Off
+fi
 
-PS1=$Color_Off$_username_$BGreen$_hostname_$Blue$_path_$Color_Off'$ ';
+PS1=$Color_Off$_username_$BGreen$_hostname_$Blue$_path_$Color_Off$_yroot_'$ ';
 # =======================
 
 export CLICOLOR=1;

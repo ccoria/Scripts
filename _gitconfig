@@ -1,7 +1,8 @@
 [user]
 	name = Cassiano Coria Neto
-	email = cassiano.coria@yahoo.com.br
+	#email = cassiano.coria@yahoo.com.br
+	email = ccoria@yahoo-inc.com
 [color]
 	ui = true
 [push]
-    default = simple
+    default = current
